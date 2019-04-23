@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Signup' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-page">
+
+  <ion-list>
+
+    <form #signupForm="ngForm" novalidate>
+       <ion-item>
+            <ion-label floating color="primary">{{'First name' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.first_name" name="first_name" type="text" #first_name="ngModel" required>
+            </ion-input>
+       </ion-item>
+        <p [hidden]="first_name.valid || submitted == false" color="danger" padding-left>
+            First name is required
+        </p>
+        <ion-item>
+            <ion-label floating color="primary">{{'Last name' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.last_name" name="last_name" type="text" #last_name="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <p [hidden]="last_name.valid || submitted == false" color="danger" padding-left>
+            Last name is required
+        </p>
+        <ion-item>
+            <ion-label floating color="primary">{{'Username' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <p [hidden]="username.valid || submitted == false" color="danger" padding-left>
+            Username is required
+        </p>
+
+        <ion-item>
+            <ion-label floating color="primary">{{'Email' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <p [hidden]="email.valid || submitted == false" color="danger" padding-left>
+            Username is required
+        </p>
+
+        <ion-item>
+            <ion-label floating color="primary">{{'Password' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.password1" name="password1" type="password" #password1="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <p [hidden]="password1.valid || submitted == false" color="danger" padding-left>
+            Password is required
+        </p>
+
+        <ion-item>
+            <ion-label floating color="primary">{{'Repeat Password' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.password2" name="password2" type="password" #password2="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <p [hidden]="password2.valid || submitted == false" color="danger" padding-left>
+            Password is required
+        </p>
+       
+        <ion-item *ngIf="getUserlang() == 'en'">
+          <ion-label floating color="primary">{{'Media' | translate}}</ion-label>
+          <ion-select [(ngModel)]="signup.media" name="media" #media="ngModel">
+            <ion-option *ngFor="let m of medias" value="{{m.id}}">{{m.english_name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item *ngIf="getUserlang() == 'ar'">
+          <ion-label floating color="primary">{{'Media' | translate}}</ion-label>
+          <ion-select [(ngModel)]="signup.media" name="media" #media="ngModel">
+            <ion-option *ngFor="let m of medias" value="{{m.id}}">{{m.arabic_name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating color="primary">{{'address' | translate}}</ion-label>
+            <ion-textarea [(ngModel)]="signup.address" name="address" #address="ngModel"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label floating color="primary">{{'Phone' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.phone" name="phone" type="text" #phone="ngModel">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating color="primary">{{'Office Phone' | translate}}</ion-label>
+            <ion-input [(ngModel)]="signup.office_phone" name="office_phone" type="text" #office_phone="ngModel">
+            </ion-input>
+        </ion-item>
+      <div padding>
+        <button ion-button (click)="onSignup(signupForm)" type="submit" block color="primary">{{'Signup' | translate}}</button>
+      </div>
+    </form>
+  </ion-list>
+
+</ion-content>

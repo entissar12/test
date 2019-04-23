@@ -4,7 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {BackendService} from "../providers/backendService";
 import {TranslateService} from "ng2-translate";
-import {HomePage} from '../pages/home/home'
+import {HomePage} from '../pages/home/home';
+import {LoginPage} from "../pages/login/login";
+import {ConfirmResetPasswordPage} from "../pages/confirm-reset-password/confirm-reset-password";
+import {ChangePasswordPage} from "../pages/change-password/change-password";
+import {ResetPasswordPage} from "../pages/reset-password/reset-password";
+import {SignupPage} from "../pages/signup/signup";
 @Component({
   templateUrl: 'app.html'
 })
@@ -29,27 +34,27 @@ export class PaxApp {
       this.initializeApp();
       splashScreen.hide();
 
-      // events.subscribe('load:main', () => {
-      //   this.initializeApp();
-      // });
+      events.subscribe('load:main', () => {
+        this.initializeApp();
+      });
 
       events.subscribe('change:lang', () => {
         this.changeLang();
       });
 
-    // this.pages = [
+    this.pages = [
     //     {title: 'Hello Ionic', component: MainPage},
     //     {title: 'Add Violation', component: AddViolationPage},
     //     {title: 'Violation Details', component: ViolationDetailsPage},
-    //     {title: 'Login', component: LoginPage},
-    //     {title: 'Signup', component: SignupPage},
-    //     {title: 'ResetPassword', component: ResetPasswordPage},
-    //     {title: 'ChangePassword', component: ChangePasswordPage},
-    //     {title: 'ConfirmResetPassword', component: ConfirmResetPasswordPage},
+        {title: 'Login', component: LoginPage},
+        {title: 'Signup', component: SignupPage},
+        {title: 'ResetPassword', component: ResetPasswordPage},
+        {title: 'ChangePassword', component: ChangePasswordPage},
+        {title: 'ConfirmResetPassword', component: ConfirmResetPasswordPage},
     //     {title: 'Stats', component: StatsPage},
     //     {title: 'Add Alert', component: AddAlertPage},
     //     {title: 'Alerts List', component: AlertListPage}
-    //   ];
+      ];
 
 
   }
@@ -73,7 +78,7 @@ export class PaxApp {
             () => console.log('Categories fetched !')
           );
       } else {
-        this.nav.setRoot(HomePage);
+        this.nav.setRoot(LoginPage);
       }
     });
   }
