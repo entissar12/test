@@ -1,0 +1,16 @@
+{
+  "new_violation": "New violation",
+  "type": "Type",
+  "description": "Description",
+  "address": "Address",
+  "location": "Location",
+  "add": "Add",
+  "documents": "Documents",
+  "lang": "العربية",
+  "Password Changed successfully":"Password Changed successfully",
+  "An email of password reset will be sent in few minutes":"An email of password reset will be sent in few minutes",
+  "Check your email please !":"Check your email please !",
+  "Violation submitted successfully":"Violation submitted successfully",
+  "Violation is being submitted ...":"Violation is being submitted ..."
+}
+
