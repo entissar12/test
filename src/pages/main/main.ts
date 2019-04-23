@@ -4,8 +4,8 @@ import { Events, ToastController } from 'ionic-angular';
 import { BackendService } from '../../providers/backendService';
 import {NavController} from "ionic-angular";
 import {TranslateService} from "ng2-translate";
-// import {AddViolationPage} from "../violation/add/add";
-// import {ViolationDetailsPage} from "../violation/details/details";
+import {AddViolationPage} from "../violation/add/add";
+import {ViolationDetailsPage} from "../violation/details/details";
 
 
 declare var google;
@@ -96,7 +96,7 @@ export class MainPage {
     });
 
     google.maps.event.addListener(marker, 'click', () => {
-      // this.navCtrl.push(ViolationDetailsPage, violation);
+      this.navCtrl.push(ViolationDetailsPage, violation);
     });
 
     return marker;
@@ -115,7 +115,7 @@ export class MainPage {
   }
 
   addViolation() {
-    // this.navCtrl.push(AddViolationPage);
+    this.navCtrl.push(AddViolationPage);
   }
 
 

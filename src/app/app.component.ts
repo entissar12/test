@@ -12,6 +12,10 @@ import {SignupPage} from "../pages/signup/signup";
 
 import { MainPage } from '../pages/main/main';
 import {PrivacyPolicy} from "../pages/privacy-policy/privacy_policy";
+import {AddAlertPage} from "../pages/alerts/alert/alert";
+import {AlertListPage} from "../pages/alerts/list/list";
+import {AddViolationPage} from "../pages/violation/add/add";
+import {ViolationDetailsPage} from "../pages/violation/details/details";
 
 @Component({
   templateUrl: 'app.html'
@@ -46,17 +50,17 @@ export class PaxApp {
       });
 
     this.pages = [
-    //     {title: 'Hello Ionic', component: MainPage},
-    //     {title: 'Add Violation', component: AddViolationPage},
-    //     {title: 'Violation Details', component: ViolationDetailsPage},
+        {title: 'Hello Ionic', component: MainPage},
+        {title: 'Add Violation', component: AddViolationPage},
+        {title: 'Violation Details', component: ViolationDetailsPage},
         {title: 'Login', component: LoginPage},
         {title: 'Signup', component: SignupPage},
         {title: 'ResetPassword', component: ResetPasswordPage},
         {title: 'ChangePassword', component: ChangePasswordPage},
         {title: 'ConfirmResetPassword', component: ConfirmResetPasswordPage},
     //     {title: 'Stats', component: StatsPage},
-    //     {title: 'Add Alert', component: AddAlertPage},
-    //     {title: 'Alerts List', component: AlertListPage}
+        {title: 'Add Alert', component: AddAlertPage},
+        {title: 'Alerts List', component: AlertListPage}
       ];
 
 
@@ -151,15 +155,15 @@ export class PaxApp {
   //   this.menu.close();
   // }
   //
-  // addAlert() {
-  //   this.nav.push(AddAlertPage);
-  //   this.menu.close();
-  // }
-  //
-  // listAlerts() {
-  //   this.nav.push(AlertListPage);
-  //   this.menu.close();
-  // }
+  addAlert() {
+    this.nav.push(AddAlertPage);
+    this.menu.close();
+  }
+
+  listAlerts() {
+    this.nav.push(AlertListPage);
+    this.menu.close();
+  }
 
   privacy_policy() {
     this.nav.push(PrivacyPolicy);

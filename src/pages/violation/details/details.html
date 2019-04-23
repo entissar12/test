@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Violation' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-toolbar class="toolbar">
+    <ion-row *ngIf="getUserlang() == 'en'">
+      <ion-col  class="bold">{{'type' | translate}} : </ion-col>
+      <ion-col>{{violation.category_english_name}}</ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="getUserlang() == 'ar'">
+      <ion-col  class="bold">{{'type' | translate}} : </ion-col>
+      <ion-col>{{violation.category_arabic_name}}</ion-col>
+    </ion-row>
+  </ion-toolbar><br>
+
+  <ion-toolbar class="toolbar">
+    <ion-row>
+      <ion-col  class="bold">{{'address' | translate}} : </ion-col>
+      <ion-col >{{violation.address}}</ion-col>
+    </ion-row>
+  </ion-toolbar><br>
+
+
+  <ion-toolbar class="toolbar">
+    <ion-row>
+      <ion-col  class="bold">{{'description' | translate }} : </ion-col>
+      <ion-col >{{violation.description}}</ion-col>
+    </ion-row>
+  </ion-toolbar><br>
+
+
+  <ion-toolbar *ngIf="violation.documents.length">
+    <ion-row>
+      <ion-col  class="bold">{{ 'documents'| translate }} : </ion-col>
+    </ion-row>
+
+    <ion-grid>
+      <ion-row wrap>
+        <ion-col width-33 *ngFor="let document of violation.documents; let i = index;">
+          <div *ngIf="document.type == 'image'">
+            <img [src]="document.docfile" (click)="openViewer(document)" width="100%" />
+          </div>
+          <div *ngIf="document.type == 'audio'">
+            <img src="assets/images/audio-icon.jpg" (click)="openViewer(document)" />
+          </div>
+          <div *ngIf="document.type == 'video'">
+            <img src="assets/images/video-icon.jpg" (click)="openViewer(document)" />
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+
+</ion-content>

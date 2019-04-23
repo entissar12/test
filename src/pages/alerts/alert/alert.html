@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Add Alert' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <form #alertForm="ngForm" novalidate>
+      <ion-item *ngIf="getUserlang() == 'en'">
+        <ion-label>{{'type' | translate}}</ion-label>
+        <ion-select [(ngModel)]="alert.category" name="category" #category="ngModel">
+          <ion-option *ngFor="let c of categories" value="{{c.url}}">{{c.english_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="getUserlang() == 'ar'">
+        <ion-label>{{'type' | translate}}</ion-label>
+        <ion-select [(ngModel)]="alert.category" name="category" #category="ngModel">
+          <ion-option *ngFor="let c of categories" value="{{c.url}}">{{c.arabic_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{'Message' | translate}}</ion-label>
+        <ion-textarea [(ngModel)]="alert.address" name="address" #address="ngModel"></ion-textarea>
+      </ion-item>
+      <div padding>
+        <button ion-button (click)="addAlert(alertForm)" type="submit" block color="primary">{{'add' | translate}}</button>
+      </div>
+    </form>
+  </ion-list>
+</ion-content>

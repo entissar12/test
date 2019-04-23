@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'new_violation' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form #violationForm="ngForm" novalidate>
+    <ion-list>
+
+      <ion-item *ngIf="getUserlang() == 'en'">
+        <ion-label>{{'type' | translate}}</ion-label>
+        <ion-select [(ngModel)]="violation.category" name="category" #category="ngModel">
+          <ion-option *ngFor="let c of categories" value="{{c.url}}">{{c.english_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="getUserlang() == 'ar'">
+        <ion-label>{{'type' | translate}}</ion-label>
+        <ion-select [(ngModel)]="violation.category" name="category" #category="ngModel">
+          <ion-option *ngFor="let c of categories" value="{{c.url}}">{{c.arabic_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'description' | translate }}</ion-label>
+        <ion-textarea [(ngModel)]="violation.description" name="description" #description="ngModel"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'address' | translate}}</ion-label>
+        <ion-textarea [(ngModel)]="violation.address" name="address" #address="ngModel"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'location' | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="violation.location" name="location" #location="ngModel" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'date' | translate}}</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="violation.date" name="date" #date="ngModel"></ion-datetime>
+      </ion-item>
+    </ion-list>
+
+    <ion-row>
+      <ion-col width-33>
+        <button ion-button (click)="openGallery()" color="dark" outline class="button-block">
+          <ion-icon name="image" md="md-image"> </ion-icon>
+          {{'Gallery' | translate }}
+        </button>
+      </ion-col>
+      <ion-col width-33>
+        <button ion-button (click)="openCamera()" color="dark" outline class="button-block">
+          <ion-icon name="camera" md="md-camera"> </ion-icon>
+          {{'Camera' | translate }}
+        </button>
+      </ion-col>
+      <ion-col width-33>
+        <button ion-button (click)="selectVideo()" color="dark" outline class="button-block">
+          <ion-icon name="videocam" md="md-videocam"> </ion-icon>
+          {{'Videos' | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-grid>
+      <ion-row wrap>
+        <ion-col width-33 *ngFor="let document of docs; let i = index;">
+          <div *ngIf="document.type == 'image'">
+            <img [src]="document.docfile" (click)="openViewer(document)" width="100%" />
+          </div>
+          <div *ngIf="document.type == 'audio'">
+            <img src="assets/images/audio-icon.jpg" (click)="openViewer(document)" />
+          </div>
+          <div *ngIf="document.type == 'video'">
+            <img src="assets/images/video-icon.jpg" (click)="openViewer(document)" />
+          </div>
+          <ion-icon name="trash" color="danger" (click)="removeFile(i)"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-col>
+      <button ion-button (click)="addViolation(violationForm)" type="submit" color="primary" block>{{'add' | translate}}</button>
+    </ion-col>
+  </form>
+</ion-content>

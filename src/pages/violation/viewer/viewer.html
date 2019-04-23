@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Violation' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="document.type == 'image'">
+    <img [src]="document.docfile" />
+  </div>
+  <div *ngIf="document.type == 'audio'">
+    <audio controls>
+      <source src="{{document.docfile}}" type='audio/mp3' />
+    </audio>
+  </div>
+  <div *ngIf="document.type == 'video'">
+    <video controls>
+      <source src="{{document.docfile}}" type='video/mp4' />
+    </video>
+  </div>
+</ion-content>

@@ -14,6 +14,11 @@ import {ResetPasswordPage} from "../pages/reset-password/reset-password";
 import {SignupPage} from "../pages/signup/signup";
 import { MainPage } from '../pages/main/main';
 import {PrivacyPolicy} from "../pages/privacy-policy/privacy_policy";
+import {AddAlertPage} from "../pages/alerts/alert/alert";
+import {AlertListPage} from "../pages/alerts/list/list";
+import {AddViolationPage} from "../pages/violation/add/add";
+import {ViolationDetailsPage} from "../pages/violation/details/details";
+import {ViewerPage} from "../pages/violation/viewer/viewer";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -29,6 +34,11 @@ export function createTranslateLoader(http: Http) {
     ConfirmResetPasswordPage,
     MainPage,
     PrivacyPolicy,
+    AddAlertPage,
+    AlertListPage,
+    AddViolationPage,
+    ViolationDetailsPage,
+    ViewerPage,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +60,11 @@ export function createTranslateLoader(http: Http) {
     ConfirmResetPasswordPage,
     MainPage,
     PrivacyPolicy,
+    AddAlertPage,
+    AlertListPage,
+    AddViolationPage,
+    ViolationDetailsPage,
+    ViewerPage,
   ],
   providers: [
     StatusBar,

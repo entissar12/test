@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Alerts List' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let alert of alerts" style="width: 100%">
+      <div class="item-note" style="font-weight: bold; color: mediumblue">
+        {{alert.category_english_name}}
+      </div>
+
+      <div class="item-note">
+        {{alert.address}}
+      </div>
+
+      <div class="item-note">
+        {{alert.created_date | date: 'dd/MM/yyyy | H:mm'}}
+      </div>
+    </button>
+  </ion-list>
+</ion-content>
