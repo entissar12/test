@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>PAX</ion-title>
+    <ion-buttons end>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button class="lang-button" (click)="changeLang()">{{'lang' | translate}}</button>
+          </ion-col>
+          <ion-col>
+            <button class="icon-refresh" (click)="refresh()">
+              <ion-icon name="refresh" ></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div #map id="map"></div>
+
+  <ion-fab right top>
+    <button ion-fab color="danger" (click)="addPanic()">{{'Panic' | translate}}</button>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="addViolation()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

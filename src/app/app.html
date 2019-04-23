@@ -5,6 +5,40 @@
       <ion-title>PAX ...</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content>
+    <ion-list>
+      <div *ngIf="userLogged()">
+        <button ion-item (click)="stats()">
+          {{'Statistics' | translate }}
+        </button>
+        <button ion-item (click)="allcategories()">
+          {{'All Categories' | translate }}
+        </button>
+        <div *ngFor="let c of categories">
+          <button ion-item *ngIf="getUserlang() == 'ar' " (click)="filter(c)">
+            {{c.arabic_name}}
+          </button>
+          <button ion-item *ngIf="getUserlang() == 'en' " (click)="filter(c)">
+            {{c.english_name}}
+          </button>
+        </div>
+        <button ion-item (click)="addAlert()">
+          {{'Add Alert' | translate}}
+        </button>
+        <!--<button ion-item (click)="listAlerts()">-->
+          <!--{{'Alerts List' | translate}}-->
+        <!--</button>-->
+        <button ion-item (click)="changepassword()">
+          {{'Change Password' | translate}}
+        </button>
+        <button ion-item (click)="privacy_policy()">
+          {{'Privacy Policy' | translate}}
+        </button>
+        <button ion-item (click)="logout()">{{'Logout' | translate}}</button>
+      </div>
+    </ion-list>
+  </ion-content>
+
 </ion-menu>
 
 <ion-nav [root]="" #content swipeBackEnabled="false"></ion-nav>

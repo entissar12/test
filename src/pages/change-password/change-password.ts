@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {NavController, ToastController} from 'ionic-angular';
 import { BackendService } from '../../providers/backendService';
-// import {MainPage} from "../main/main";
+import {MainPage} from "../main/main";
 import {TranslateService} from "ng2-translate";
 
 @Component({
@@ -49,7 +49,7 @@ export class ChangePasswordPage {
                         }
                     );
                     toast.present();
-                    // this.navCtrl.setRoot(MainPage);
+                    this.navCtrl.setRoot(MainPage);
                 }
             );
       }

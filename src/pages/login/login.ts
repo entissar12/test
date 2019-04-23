@@ -4,7 +4,7 @@ import { SignupPage } from '../signup/signup';
 import {ResetPasswordPage} from "../reset-password/reset-password";
 import {TranslateService} from "ng2-translate";
 import {BackendService} from "../../providers/backendService";
-// import {MainPage} from "../main/main";
+import {MainPage} from "../main/main";
 
 @Component({
   templateUrl: 'login.html'
@@ -33,7 +33,7 @@ export class LoginPage {
         data => {
           localStorage.setItem('token', data);
           this.is_auth_error = false;
-          // this.navCtrl.setRoot(MainPage);
+          this.navCtrl.setRoot(MainPage);
           this.events.publish('load:main');
         },
         err => {

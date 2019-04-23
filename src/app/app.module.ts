@@ -7,12 +7,13 @@ import {BackendService} from "../providers/backendService";
 import {HttpModule, Http} from '@angular/http';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from "ng2-translate";
 import { PaxApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import {LoginPage} from "../pages/login/login";
 import {ConfirmResetPasswordPage} from "../pages/confirm-reset-password/confirm-reset-password";
 import {ChangePasswordPage} from "../pages/change-password/change-password";
 import {ResetPasswordPage} from "../pages/reset-password/reset-password";
 import {SignupPage} from "../pages/signup/signup";
+import { MainPage } from '../pages/main/main';
+import {PrivacyPolicy} from "../pages/privacy-policy/privacy_policy";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -21,12 +22,13 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     PaxApp,
-    HomePage,
     LoginPage,
     SignupPage,
     ResetPasswordPage,
     ChangePasswordPage,
     ConfirmResetPasswordPage,
+    MainPage,
+    PrivacyPolicy,
   ],
   imports: [
     BrowserModule,
@@ -41,12 +43,13 @@ export function createTranslateLoader(http: Http) {
   bootstrap: [IonicApp],
   entryComponents: [
     PaxApp,
-    HomePage,
     LoginPage,
     SignupPage,
     ResetPasswordPage,
     ChangePasswordPage,
     ConfirmResetPasswordPage,
+    MainPage,
+    PrivacyPolicy,
   ],
   providers: [
     StatusBar,

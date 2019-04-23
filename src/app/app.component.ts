@@ -4,12 +4,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {BackendService} from "../providers/backendService";
 import {TranslateService} from "ng2-translate";
-import {HomePage} from '../pages/home/home';
 import {LoginPage} from "../pages/login/login";
 import {ConfirmResetPasswordPage} from "../pages/confirm-reset-password/confirm-reset-password";
 import {ChangePasswordPage} from "../pages/change-password/change-password";
 import {ResetPasswordPage} from "../pages/reset-password/reset-password";
 import {SignupPage} from "../pages/signup/signup";
+
+import { MainPage } from '../pages/main/main';
+import {PrivacyPolicy} from "../pages/privacy-policy/privacy_policy";
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -71,7 +74,7 @@ export class PaxApp {
             data => {
               this.categories = data;
               if (localStorage.getItem('token')) {
-                // this.nav.setRoot(MainPage);
+                this.nav.setRoot(MainPage);
               }
             },
             err => console.log(err),
@@ -121,6 +124,48 @@ export class PaxApp {
     this.menu.close();
     location.reload();
   }
+
+  logout() {
+    this.menu.close();
+    localStorage.removeItem('token');
+    this.nav.setRoot(LoginPage);
+  }
+
+  filter(category) {
+    this.events.publish('menu:clicked', category.id);
+    this.menu.close();
+  }
+
+  allcategories() {
+    this.events.publish('clear:filter');
+    this.menu.close();
+  }
+
+  changepassword() {
+    this.nav.push(ChangePasswordPage);
+    this.menu.close();
+  }
+
+  // stats() {
+  //   this.nav.push(StatsPage);
+  //   this.menu.close();
+  // }
+  //
+  // addAlert() {
+  //   this.nav.push(AddAlertPage);
+  //   this.menu.close();
+  // }
+  //
+  // listAlerts() {
+  //   this.nav.push(AlertListPage);
+  //   this.menu.close();
+  // }
+
+  privacy_policy() {
+    this.nav.push(PrivacyPolicy);
+    this.menu.close();
+  }
+
 
 }
 
