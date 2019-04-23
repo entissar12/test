@@ -25,9 +25,10 @@
     "@ionic-native/geolocation": "^5.5.0",
     "@ionic-native/ionic-webview": "^5.5.0",
     "@ionic-native/keyboard": "^5.5.0",
-    "@ionic-native/splash-screen": "^4.4.0",
-    "@ionic-native/status-bar": "^4.4.0",
+    "@ionic-native/splash-screen": "^4.20.0",
+    "@ionic-native/status-bar": "^4.20.0",
     "@ionic/storage": "2.0.1",
+    "cordova-ios": "5.0.1",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-geolocation": "^4.0.1",
@@ -58,6 +59,9 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {}
-    }
+    },
+    "platforms": [
+      "ios"
+    ]
   }
 }
