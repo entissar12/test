@@ -20,6 +20,8 @@ import {AddViolationPage} from "../pages/violation/add/add";
 import {ViolationDetailsPage} from "../pages/violation/details/details";
 import {ViewerPage} from "../pages/violation/viewer/viewer";
 import {StatsPage} from "../pages/stats/stats";
+import { ChartModule } from 'angular2-highcharts';
+import * as highcharts from 'highcharts';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -51,6 +53,10 @@ export function createTranslateLoader(http: Http) {
       useFactory: (createTranslateLoader),
       deps: [Http]
     }),
+    ChartModule.forRoot(highcharts),
+  ],
+  exports: [
+    TranslateModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
