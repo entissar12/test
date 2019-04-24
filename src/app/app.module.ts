@@ -19,6 +19,7 @@ import {AlertListPage} from "../pages/alerts/list/list";
 import {AddViolationPage} from "../pages/violation/add/add";
 import {ViolationDetailsPage} from "../pages/violation/details/details";
 import {ViewerPage} from "../pages/violation/viewer/viewer";
+import {StatsPage} from "../pages/stats/stats";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -39,6 +40,7 @@ export function createTranslateLoader(http: Http) {
     AddViolationPage,
     ViolationDetailsPage,
     ViewerPage,
+    StatsPage,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ export function createTranslateLoader(http: Http) {
     AddViolationPage,
     ViolationDetailsPage,
     ViewerPage,
+    StatsPage,
   ],
   providers: [
     StatusBar,

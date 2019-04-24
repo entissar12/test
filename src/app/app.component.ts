@@ -16,6 +16,7 @@ import {AddAlertPage} from "../pages/alerts/alert/alert";
 import {AlertListPage} from "../pages/alerts/list/list";
 import {AddViolationPage} from "../pages/violation/add/add";
 import {ViolationDetailsPage} from "../pages/violation/details/details";
+import {StatsPage} from "../pages/stats/stats";
 
 @Component({
   templateUrl: 'app.html'
@@ -58,7 +59,7 @@ export class PaxApp {
         {title: 'ResetPassword', component: ResetPasswordPage},
         {title: 'ChangePassword', component: ChangePasswordPage},
         {title: 'ConfirmResetPassword', component: ConfirmResetPasswordPage},
-    //     {title: 'Stats', component: StatsPage},
+        {title: 'Stats', component: StatsPage},
         {title: 'Add Alert', component: AddAlertPage},
         {title: 'Alerts List', component: AlertListPage}
       ];
@@ -150,11 +151,11 @@ export class PaxApp {
     this.menu.close();
   }
 
-  // stats() {
-  //   this.nav.push(StatsPage);
-  //   this.menu.close();
-  // }
-  //
+  stats() {
+    this.nav.push(StatsPage);
+    this.menu.close();
+  }
+
   addAlert() {
     this.nav.push(AddAlertPage);
     this.menu.close();

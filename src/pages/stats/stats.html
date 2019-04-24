@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'Statistics' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-scroll scrollX="true" scrollY="true" zoom="true" style='width: 100%; height: 100%;'>
+    <chart [options]="chartOptions" type="chart"></chart>
+  </ion-scroll>
+    <ion-list radio-group>
+        <ion-item>
+            <ion-label>Category</ion-label>
+            <ion-radio value="category" (click)="load_chart_category()" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>Month</ion-label>
+            <ion-radio value="month" (click)="load_chart_month()"></ion-radio>
+        </ion-item>
+    </ion-list>
+</ion-content>
