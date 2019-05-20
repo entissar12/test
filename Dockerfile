@@ -9,6 +9,13 @@ ARG NPM_VERSION=5.6.0
 ARG IONIC_VERSION=3.20.0
 ARG CORDOVA_VERSION=8.0.0
 
+# ARG GRADLE_VERSION=3.5
+# ARG ANDROID_BUILD_TOOLS_VERSION=25.0.3
+# ARG ANDROID_PLATFORMS="android-16 android-17 android-18 android-19 android-20 android-21 android-22 android-23 android-24 android-25"
+
+# ENV ANDROID_HOME /opt/android-sdk-linux
+# ENV GRADLE_HOME /opt/gradle
+# ENV PATH ${PATH}:${GRADLE_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
 
 # -----------------------------------------------------------------------------
 # Pre-install
